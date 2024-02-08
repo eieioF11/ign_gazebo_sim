@@ -48,6 +48,8 @@ def generate_launch_description():
             executable='parameter_bridge',
             name='bridge_node',
             arguments=[
+                '/world/world_demo/clock@rosgraph_msgs/msg/Clock@ignition.msgs.Clock',
+                '/model/tugbot/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist',
                 '/model/tugbot/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist',
                 '/model/tugbot/odometry@nav_msgs/msg/Odometry@ignition.msgs.Odometry',
                 '/world/world_demo/model/tugbot/link/scan_omni/sensor/scan_omni/scan/points@sensor_msgs/msg/PointCloud2@ignition.msgs.PointCloudPacked',
@@ -58,6 +60,7 @@ def generate_launch_description():
             ],
             remappings=[
                 # ('/model/tugbot/tf', '/tf'),
+                ('/world/world_demo/clock', '/clock'),
                 ('/model/tugbot/cmd_vel', '/cmd_vel'),
                 ('/model/tugbot/odometry', '/odom'),
                 ('/world/world_demo/model/tugbot/link/scan_omni/sensor/scan_omni/scan/points', '/tugbot/points'),
